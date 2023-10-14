@@ -23,6 +23,12 @@ Command line flags support is provided for additional functionalities.
 
 Command Line Flags:
   - --help: Print a detailed help message outlining usage and options.
+  - --batfile: The path to a battery file in the LFSH.
+  - --batmax: Maxmium charge threshold.
+  - --batmin: Minimum charge threshold.
+  - --dead: Battery percentage level to trigger suspension.
+
+All flags can be invoked with one or two dashes "-"
 
 Usage:
 Running the tool is straightforward. In your terminal, simply type:
@@ -35,17 +41,19 @@ For a list of available options and their descriptions, use:
 
 Examples:
 
- 1. Start the battery monitor:
+1. Start the battery monitor:
+
     $ battery-notify
 
- 2. Display the help message:
-    $ battery-notify --help
+2. Display the help message:
+
+   $ battery-notify --help
 
 The tool will continue running, monitoring the battery status, and will send notifications
 as the battery level changes or reaches predefined thresholds.
 
 Future versions might offer more customization options, including setting custom
-backlight levels and notification messages.
+backlight levels and notification icons.
 */
 package main
 
@@ -71,7 +79,6 @@ func main() {
 	)
 
 	flag.StringVar(&battery_path, "batfile", "/sys/class/power_supply/BAT0", "Path to the battery file in your system.")
-	flag.StringVar(&battery_path, "bf", "/sys/class/power_supply/BAT0", "Path to the battery file in your system [shorthand].")
 	flag.UintVar(&ideal_charge_max, "batmax", 80, "Max charge level for your battery.")
 	flag.UintVar(&ideal_charge_min, "batmin", 20, "Minimum charge level for your battery.")
 	flag.UintVar(&dead, "dead", 2, "Battery percentage level to trigger suspension.")

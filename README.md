@@ -85,4 +85,4 @@ For any questions or support, please raise an issue in the GitHub repository or 
 
 ---
 
-Made with 💙 by [Your Name/Team Name]
+Made with 💙 by [VentGrey](https://github.com/VentGrey)
